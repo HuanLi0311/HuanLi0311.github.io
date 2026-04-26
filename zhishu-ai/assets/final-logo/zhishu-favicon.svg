@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  智枢科技 / Zhishu AI — Favicon
+  Optimized for 16×16 / 32×32 rendering
+  Simplified: larger cells, stronger stroke, no integration traces
+  Dark background for visibility in browser tab bars
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <rect width="100" height="100" rx="16" fill="#1B2A4A"/>
+  <g transform="translate(50, 50)">
+    <!-- Simplified 3×3 grid — larger cells, fewer details -->
+    <rect x="-34" y="-34" width="19" height="19" rx="3" fill="none" stroke="#546578" stroke-width="2.2"/>
+    <rect x="-9.5" y="-34" width="19" height="19" rx="3" fill="none" stroke="#546578" stroke-width="2.2"/>
+    <rect x="15" y="-34" width="19" height="19" rx="3" fill="none" stroke="#546578" stroke-width="2.2"/>
+    
+    <rect x="-34" y="-9.5" width="19" height="19" rx="3" fill="none" stroke="#546578" stroke-width="2.2"/>
+    <rect x="-9.5" y="-9.5" width="19" height="19" rx="3" fill="#00C9A7"/>
+    <rect x="15" y="-9.5" width="19" height="19" rx="3" fill="none" stroke="#546578" stroke-width="2.2"/>
+    
+    <rect x="-34" y="15" width="19" height="19" rx="3" fill="none" stroke="#546578" stroke-width="2.2"/>
+    <rect x="-9.5" y="15" width="19" height="19" rx="3" fill="none" stroke="#546578" stroke-width="2.2"/>
+    <rect x="15" y="15" width="19" height="19" rx="3" fill="none" stroke="#546578" stroke-width="2.2"/>
+  </g>
+</svg>
