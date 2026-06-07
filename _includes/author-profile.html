@@ -33,6 +33,8 @@
       {% endif %}
       {% if author.email %}
         <li><a href="mailto:{{ author.email }}"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i> Email</a></li>
+      {% else %}
+        <li><i class="fas fa-fw fa-envelope" aria-hidden="true"></i> Email: To be added</li>
       {% endif %}
       {% if author.keybase %}
         <li><a href="https://keybase.io/{{ author.keybase }}"><i class="fas fa-fw fa-key" aria-hidden="true"></i> Keybase</a></li>
@@ -99,9 +101,13 @@
       {% endif %}
       {% if author.wechat %}
         <li><a href="{{ site.baseurl }}/{{ author.wechat }}" target="_blank"><i class="fab fa-fw fa-weixin" aria-hidden="true"></i> WeChat</a></li>
+      {% else %}
+        <li><i class="fab fa-fw fa-weixin" aria-hidden="true"></i> WeChat: To be added</li>
       {% endif %}
       {% if author.xiaohongshu %}
         <li><a href="{{ author.xiaohongshu }}" target="_blank"><svg class="svg-inline--fa fa-fw" style="width:1em;height:1em;vertical-align:-0.125em;" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.33 0H2.67A2.67 2.67 0 0 0 0 2.67v18.66A2.67 2.67 0 0 0 2.67 24h18.66A2.67 2.67 0 0 0 24 21.33V2.67A2.67 2.67 0 0 0 21.33 0zM12 4.8a.8.8 0 0 1 .8.8v5.6h5.6a.8.8 0 0 1 0 1.6H12.8v5.6a.8.8 0 0 1-1.6 0v-5.6H5.6a.8.8 0 0 1 0-1.6h5.6V5.6a.8.8 0 0 1 .8-.8z"/></svg> 小红书</a></li>
+      {% else %}
+        <li><svg class="svg-inline--fa fa-fw" style="width:1em;height:1em;vertical-align:-0.125em;" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.33 0H2.67A2.67 2.67 0 0 0 0 2.67v18.66A2.67 2.67 0 0 0 2.67 24h18.66A2.67 2.67 0 0 0 24 21.33V2.67A2.67 2.67 0 0 0 21.33 0zM12 4.8a.8.8 0 0 1 .8.8v5.6h5.6a.8.8 0 0 1 0 1.6H12.8v5.6a.8.8 0 0 1-1.6 0v-5.6H5.6a.8.8 0 0 1 0-1.6h5.6V5.6a.8.8 0 0 1 .8-.8z"/></svg> 小红书: To be added</li>
       {% endif %}
       {% if author.flickr %}
         <li><a href="https://www.flickr.com/{{ author.flickr }}"><i class="fab fa-fw fa-flickr" aria-hidden="true"></i> Flickr</a></li>
@@ -114,6 +120,8 @@
       {% endif %}
       {% if author.googlescholar %}
         <li><a href="{{ author.googlescholar }}"><i class="fas fa-fw fa-graduation-cap"></i> Google Scholar</a></li>
+      {% else %}
+        <li><i class="fas fa-fw fa-graduation-cap"></i> Google Scholar: To be added</li>
       {% endif %}
       {% if author.pubmed %}
         <li><a href="{{ author.pubmed }}"><i class="ai ai-pubmed-square ai-fw"></i> PubMed</a></li>
