@@ -1,3 +1,5 @@
 # HuanLi0311.github.io
 
-Personal website for Huan Li, built as a static GitHub Pages site.
+Personal academic homepage for Huan Li, adapted from the AcadHomepage Jekyll template.
+
+Website: https://huanli0311.github.io/

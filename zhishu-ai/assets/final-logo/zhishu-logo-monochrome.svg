@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  智枢科技 / Zhishu AI — Monochrome Logo (Single Color)
+  Use: fax headers, single-color printing, embossing, engraving, merchandise
+  Color: #333333 (override as needed for specific applications)
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 120" width="480" height="120">
+  
+  <g transform="translate(52, 60)">
+    <!-- Row 1 -->
+    <rect x="-33" y="-33" width="18" height="18" rx="2.5" fill="none" stroke="#333333" stroke-width="1.6"/>
+    <rect x="-9" y="-33" width="18" height="18" rx="2.5" fill="none" stroke="#333333" stroke-width="1.6"/>
+    <rect x="15" y="-33" width="18" height="18" rx="2.5" fill="none" stroke="#333333" stroke-width="1.6"/>
+    <!-- Row 2 -->
+    <rect x="-33" y="-9" width="18" height="18" rx="2.5" fill="none" stroke="#333333" stroke-width="1.6"/>
+    <rect x="-9" y="-9" width="18" height="18" rx="2.5" fill="#333333"/>
+    <rect x="15" y="-9" width="18" height="18" rx="2.5" fill="none" stroke="#333333" stroke-width="1.6"/>
+    <!-- Row 3 -->
+    <rect x="-33" y="15" width="18" height="18" rx="2.5" fill="none" stroke="#333333" stroke-width="1.6"/>
+    <rect x="-9" y="15" width="18" height="18" rx="2.5" fill="none" stroke="#333333" stroke-width="1.6"/>
+    <rect x="15" y="15" width="18" height="18" rx="2.5" fill="none" stroke="#333333" stroke-width="1.6"/>
+  </g>
+  
+  <text x="108" y="52"
+        font-family="'PingFang SC','Noto Sans SC','Source Han Sans SC','Microsoft YaHei',sans-serif"
+        font-weight="800" font-size="38" fill="#333333" letter-spacing="4">智枢</text>
+  <text x="210" y="52"
+        font-family="'PingFang SC','Noto Sans SC','Source Han Sans SC','Microsoft YaHei',sans-serif"
+        font-weight="400" font-size="38" fill="#666666" letter-spacing="4">科技</text>
+  
+  <text x="110" y="78"
+        font-family="'Inter','SF Pro Display','Helvetica Neue',sans-serif"
+        font-weight="500" font-size="12" fill="#666666" letter-spacing="5">ZHISHU AI</text>
+  
+  <text x="110" y="100"
+        font-family="'PingFang SC','Noto Sans SC','Source Han Sans SC',sans-serif"
+        font-weight="300" font-size="10" fill="#888888" letter-spacing="2">AI 部署 · 系统集成 · 持续运营</text>
+</svg>

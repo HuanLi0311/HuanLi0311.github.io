@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  智枢科技 / Zhishu AI — Final Logo: Primary Horizontal Lockup
+  Direction: "The Grid" (refined)
+  
+  Design rationale:
+  - 3×3 grid with center cell illuminated = AI intelligence embedded within existing infrastructure
+  - Cells use precise 2px gaps (not lines connecting them) — reads as a unified matrix, not scattered boxes
+  - Center cell is solid teal with a subtle lighter inner rectangle — depth without gradient
+  - Outer cells have consistent stroke weight — manufacturing precision
+  - Wordmark uses weight contrast: 智枢 (800) vs 科技 (400) for hierarchy
+  - English set small, spaced, uppercase — secondary identifier
+  
+  Size: 480×120 viewBox — optimized for web headers, email signatures, pitch decks
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 120" width="480" height="120">
+  
+  <!-- === GRID MARK: 3×3 Matrix === -->
+  <g transform="translate(52, 60)">
+    <!-- Row 1 -->
+    <rect x="-33" y="-33" width="18" height="18" rx="2.5" fill="none" stroke="#546578" stroke-width="1.6"/>
+    <rect x="-9" y="-33" width="18" height="18" rx="2.5" fill="none" stroke="#546578" stroke-width="1.6"/>
+    <rect x="15" y="-33" width="18" height="18" rx="2.5" fill="none" stroke="#546578" stroke-width="1.6"/>
+    <!-- Row 2 -->
+    <rect x="-33" y="-9" width="18" height="18" rx="2.5" fill="none" stroke="#546578" stroke-width="1.6"/>
+    <!-- CENTER: illuminated cell -->
+    <rect x="-9" y="-9" width="18" height="18" rx="2.5" fill="#00C9A7"/>
+    <rect x="-5" y="-5" width="10" height="10" rx="1.5" fill="#00DDB5" opacity="0.3"/>
+    <rect x="15" y="-9" width="18" height="18" rx="2.5" fill="none" stroke="#546578" stroke-width="1.6"/>
+    <!-- Row 3 -->
+    <rect x="-33" y="15" width="18" height="18" rx="2.5" fill="none" stroke="#546578" stroke-width="1.6"/>
+    <rect x="-9" y="15" width="18" height="18" rx="2.5" fill="none" stroke="#546578" stroke-width="1.6"/>
+    <rect x="15" y="15" width="18" height="18" rx="2.5" fill="none" stroke="#546578" stroke-width="1.6"/>
+    
+    <!-- Integration traces: center → adjacent (horizontal + vertical only, no diagonals) -->
+    <!-- These are subtle, short connector marks — not full lines -->
+    <rect x="-11" y="-1" width="2" height="2" rx="0.5" fill="#00C9A7" opacity="0.5"/>
+    <rect x="9" y="-1" width="2" height="2" rx="0.5" fill="#00C9A7" opacity="0.5"/>
+    <rect x="-1" y="-11" width="2" height="2" rx="0.5" fill="#00C9A7" opacity="0.5"/>
+    <rect x="-1" y="9" width="2" height="2" rx="0.5" fill="#00C9A7" opacity="0.5"/>
+  </g>
+  
+  <!-- === WORDMARK === -->
+  <!-- 智枢 — primary brand name -->
+  <text x="108" y="52"
+        font-family="'PingFang SC','Noto Sans SC','Source Han Sans SC','Microsoft YaHei',sans-serif"
+        font-weight="800" font-size="38" fill="#F0F4F8" letter-spacing="4">智枢</text>
+  <!-- 科技 — descriptor, lighter weight -->
+  <text x="210" y="52"
+        font-family="'PingFang SC','Noto Sans SC','Source Han Sans SC','Microsoft YaHei',sans-serif"
+        font-weight="400" font-size="38" fill="#8899AA" letter-spacing="4">科技</text>
+  
+  <!-- ZHISHU AI — English secondary -->
+  <text x="110" y="78"
+        font-family="'Inter','SF Pro Display','Helvetica Neue',sans-serif"
+        font-weight="500" font-size="12" fill="#64748B" letter-spacing="5">ZHISHU AI</text>
+  
+  <!-- Micro tagline -->
+  <text x="110" y="100"
+        font-family="'PingFang SC','Noto Sans SC','Source Han Sans SC',sans-serif"
+        font-weight="300" font-size="10" fill="#4A5568" letter-spacing="2">AI 部署 · 系统集成 · 持续运营</text>
+</svg>

@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>智枢科技 ZHISHU AI — 企业智能执行系统</title>
+  <meta name="description" content="智枢科技为企业部署 AI 执行层。让每个决策都有人跟、每个任务都有人盯。90天部署，持续进化。">
+  <meta name="theme-color" content="#1B2A4A">
+  <meta property="og:title" content="智枢科技 — AI 执行层，落地不落空">
+  <meta property="og:description" content="企业智能执行系统 · 部署 · 运营 · 进化">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_CN">
+  <link rel="icon" href="../assets/final-logo/zhishu-favicon.svg">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap');
+    :root{--navy:#1B2A4A;--nd:#0F1A2E;--nl:#243656;--tl:#00C9A7;--td:rgba(0,201,167,.15);--tg:rgba(0,201,167,.25);--st:#6B7B8D;--sl:#8A9AAC;--wh:#F7F8FA;--am:#F5A623;--ad:rgba(245,166,35,.12);--rd:#E74C3C;--rdd:rgba(231,76,60,.12);--gn:#27AE60;--bg:var(--nd);--bgc:rgba(27,42,74,.7);--bd:rgba(107,123,141,.2);--bt:rgba(0,201,167,.3);--cn:'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif;--en:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;--mn:'JetBrains Mono','SF Mono','Fira Code',monospace;--f1:clamp(1.8rem,5vw,3.2rem);--f2:clamp(1.3rem,3vw,2rem);--f3:clamp(.88rem,1.7vw,1.15rem);--fb:clamp(.68rem,1.1vw,.88rem);--fs:clamp(.58rem,.85vw,.74rem);--fl:clamp(.5rem,.7vw,.64rem);--px:clamp(1.5rem,4vw,4.5rem);--py:clamp(1rem,3vh,3.5rem);--gp:clamp(.5rem,1.2vw,1.1rem);--ez:cubic-bezier(.16,1,.3,1);--dr:.6s}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{height:100%;scroll-snap-type:y mandatory;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:var(--cn);background:var(--bg);color:var(--wh);height:100%;overflow-x:hidden;line-height:1.6}
+    ::selection{background:var(--tl);color:var(--nd)}
+    .S{width:100vw;height:100vh;height:100dvh;overflow:hidden;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:center;position:relative;padding:var(--py) var(--px)}
+    .S::after{content:attr(data-n);position:absolute;bottom:clamp(.5rem,1vh,.9rem);right:var(--px);font-family:var(--mn);font-size:var(--fl);color:var(--st);letter-spacing:.1em}
+    .SC{flex:1;display:flex;flex-direction:column;justify-content:center;max-height:100%;overflow:hidden}
+    .ND{position:fixed;right:clamp(.4rem,1vw,.9rem);top:50%;transform:translateY(-50%);z-index:1000;display:flex;flex-direction:column;gap:clamp(.2rem,.5vh,.4rem)}
+    .dot{width:7px;height:7px;border-radius:50%;background:var(--st);opacity:.3;cursor:pointer;transition:all .3s var(--ez);border:none;padding:0}
+    .dot:hover{opacity:.6}.dot.on{background:var(--tl);opacity:1;box-shadow:0 0 8px var(--tg)}
+    .PB{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--tl),var(--am));z-index:1001;transition:width .3s var(--ez);width:0}
+    .rv{opacity:0;transform:translateY(16px);transition:opacity var(--dr) var(--ez),transform var(--dr) var(--ez)}
+    .S.vis .rv{opacity:1;transform:translateY(0)}
+    .S.vis .rv:nth-child(2){transition-delay:.06s}.S.vis .rv:nth-child(3){transition-delay:.12s}.S.vis .rv:nth-child(4){transition-delay:.18s}.S.vis .rv:nth-child(5){transition-delay:.24s}.S.vis .rv:nth-child(6){transition-delay:.3s}.S.vis .rv:nth-child(7){transition-delay:.36s}
+    @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+    .ey{font-family:var(--mn);font-size:var(--fl);letter-spacing:.18em;text-transform:uppercase;color:var(--tl);margin-bottom:clamp(.2rem,.5vh,.4rem);display:flex;align-items:center;gap:.4rem}
+    .ey::before{content:'';width:18px;height:1px;background:var(--tl);flex-shrink:0}
+    .sh{font-size:var(--f2);font-weight:700;line-height:1.25;letter-spacing:-.01em;margin-bottom:clamp(.2rem,.5vh,.4rem)}
+    .sp{font-size:var(--fb);color:var(--sl);max-width:580px;line-height:1.7;margin-bottom:clamp(.25rem,.6vh,.5rem)}
+    .tc{color:var(--tl)}.ac{color:var(--am)}.b{font-weight:700}
+    .cd{background:var(--bgc);border:1px solid var(--bd);border-radius:10px;padding:clamp(.45rem,1vw,.85rem);transition:border-color .3s;backdrop-filter:blur(8px)}
+    .cd:hover{border-color:var(--bt)}
+    .ct{font-size:var(--f3);font-weight:700;margin-bottom:clamp(.06rem,.15vh,.1rem)}
+    .cb{font-size:var(--fb);color:var(--sl);line-height:1.55}
+    .g2{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--gp)}
+    .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gp)}
+    .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gp)}
+    @media(max-width:768px){.g2,.g3,.g4{grid-template-columns:1fr}}
+    @media(min-width:769px)and(max-width:1024px){.g3,.g4{grid-template-columns:repeat(2,1fr)}}
+    .topo{position:absolute;inset:0;opacity:.022;background-image:repeating-linear-gradient(0deg,transparent,transparent 56px,rgba(0,201,167,.35) 56px,rgba(0,201,167,.35) 57px),repeating-linear-gradient(90deg,transparent,transparent 56px,rgba(107,123,141,.2) 56px,rgba(107,123,141,.2) 57px);pointer-events:none}
+    .gw{position:absolute;border-radius:50%;pointer-events:none;filter:blur(80px)}
+    .xh{position:absolute;width:40px;height:40px;border:1px solid rgba(0,201,167,.07);border-radius:50%;pointer-events:none}
+    .xh::before,.xh::after{content:'';position:absolute;background:rgba(0,201,167,.07)}
+    .xh::before{width:1px;height:100%;left:50%;top:0}.xh::after{width:100%;height:1px;top:50%;left:0}
+    @media(max-height:700px){:root{--py:clamp(.6rem,2vh,1.8rem);--f1:clamp(1.5rem,4.5vw,2.5rem);--f2:clamp(1.1rem,2.6vw,1.6rem);--f3:clamp(.8rem,1.4vw,1rem);--fb:clamp(.62rem,.95vw,.78rem);--gp:clamp(.35rem,.9vw,.8rem)}}
+    @media(max-height:600px){:root{--py:clamp(.4rem,1.5vh,1.3rem);--f2:clamp(.95rem,2.3vw,1.4rem);--fb:clamp(.58rem,.85vw,.72rem)}.ND,.xh{display:none}}
+    @media(max-height:500px){:root{--px:clamp(1rem,3vw,2rem);--f1:clamp(1.2rem,4vw,2rem);--f2:clamp(.88rem,2vw,1.2rem)}}
+    @keyframes pls{0%,100%{opacity:.6;transform:scale(1)}50%{opacity:1;transform:scale(1.06)}}
+  </style>
+</head>
+<body>
+  <div class="PB" id="pb"></div>
+  <nav class="ND" id="nd" aria-label="幻灯片导航"></nav>
+
+  <!-- S1 COVER -->
+  <section class="S" id="s1" data-n="01 / 11">
+    <div class="gw" style="width:50vw;height:50vw;max-width:600px;max-height:600px;top:-15%;right:-10%;background:radial-gradient(circle,rgba(0,201,167,.08) 0%,transparent 70%);animation:pls 10s ease-in-out infinite"></div>
+    <div class="gw" style="width:35vw;height:35vw;max-width:400px;max-height:400px;bottom:-10%;left:-5%;background:radial-gradient(circle,rgba(245,166,35,.04) 0%,transparent 70%);animation:pls 12s ease-in-out infinite reverse"></div>
+    <div class="xh" style="top:15%;right:22%"></div><div class="xh" style="bottom:20%;right:35%"></div>
+    <div class="topo"></div>
+    <div class="SC">
+      <div class="rv" style="margin-bottom:clamp(.8rem,1.8vh,1.3rem)">
+        <img src="../assets/final-logo/zhishu-logo-final.svg" alt="智枢科技 Zhishu AI" style="width:clamp(200px,26vw,290px);height:auto;display:block">
+      </div>
+      <h1 class="rv" style="font-size:var(--f1);font-weight:800;line-height:1.18;letter-spacing:-.02em;margin-bottom:clamp(.35rem,.8vh,.7rem);max-width:700px">
+        企业智能执行系统<br><span class="tc">部署 · 运营 · 进化</span>
+      </h1>
+      <p class="rv" style="font-size:clamp(.82rem,1.4vw,1rem);color:var(--sl);margin-bottom:clamp(.7rem,1.6vh,1.3rem);max-width:520px;line-height:1.7">
+        AI 执行层——让每个决策都有人跟、每个任务都有人盯。<br>90 天部署，持续进化。数据不出厂。
+      </p>
+      <div class="rv" style="display:flex;gap:clamp(1.2rem,3.5vw,2.5rem);flex-wrap:wrap">
+        <div><div style="font-family:var(--en);font-size:clamp(1.1rem,2.4vw,1.7rem);font-weight:800;color:var(--tl);line-height:1">90<span style="font-size:.55em">天</span></div><div style="font-size:var(--fl);color:var(--st);margin-top:.1rem">部署上线</div></div>
+        <div><div style="font-family:var(--en);font-size:clamp(1.1rem,2.4vw,1.7rem);font-weight:800;color:var(--tl);line-height:1">4<span style="font-size:.55em">类</span></div><div style="font-size:var(--fl);color:var(--st);margin-top:.1rem">AI 搭档角色</div></div>
+        <div><div style="font-family:var(--en);font-size:clamp(1.1rem,2.4vw,1.7rem);font-weight:800;color:var(--tl);line-height:1">100%</div><div style="font-size:var(--fl);color:var(--st);margin-top:.1rem">数据不出厂</div></div>
+        <div><div style="font-family:var(--en);font-size:clamp(1.1rem,2.4vw,1.7rem);font-weight:800;color:var(--am);line-height:1">&#8734;</div><div style="font-size:var(--fl);color:var(--st);margin-top:.1rem">越用越聪明</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S2 MONDAY MORNING PROBLEM -->
+  <section class="S" id="s2" data-n="02 / 11">
+    <div class="topo"></div><div class="xh" style="top:10%;right:14%"></div>
+    <div class="SC">
+      <div class="ey rv">痛点 / The Problem</div>
+      <h2 class="sh rv">张总的周一早晨</h2>
+      <p class="sp rv">老板的问题不是员工不努力——是看不见、管不到、信息到手上已经晚了。</p>
+      <div class="rv" style="display:flex;flex-direction:column;gap:clamp(.28rem,.55vh,.45rem);transition-delay:.1s">
+        <div style="display:flex;align-items:center;gap:.9rem;padding:clamp(.3rem,.6vh,.48rem) clamp(.6rem,1.1vw,.9rem);background:var(--bgc);border:1px solid var(--bd);border-left:3px solid var(--rd);border-radius:0 8px 8px 0">
+          <span style="font-family:var(--mn);font-size:var(--fb);font-weight:700;color:var(--am);min-width:3.1rem;flex-shrink:0">08:00</span>
+          <span style="font-size:var(--fb)">打开手机，47 条未读消息。哪些重要？不知道。全部点开才行。 &#10060;</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:.9rem;padding:clamp(.3rem,.6vh,.48rem) clamp(.6rem,1.1vw,.9rem);background:var(--bgc);border:1px solid var(--bd);border-left:3px solid var(--rd);border-radius:0 8px 8px 0">
+          <span style="font-family:var(--mn);font-size:var(--fb);font-weight:700;color:var(--am);min-width:3.1rem;flex-shrink:0">09:00</span>
+          <span style="font-size:var(--fb)">晨会。上周布置的 3 件事，2 件「还在推进中」——其实就是没动。 &#9203;</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:.9rem;padding:clamp(.3rem,.6vh,.48rem) clamp(.6rem,1.1vw,.9rem);background:var(--bgc);border:1px solid var(--bd);border-left:3px solid var(--am);border-radius:0 8px 8px 0">
+          <span style="font-family:var(--mn);font-size:var(--fb);font-weight:700;color:var(--am);min-width:3.1rem;flex-shrink:0">10:00</span>
+          <span style="font-size:var(--fb)">要一份本月销售进度。财务说「报表还没出」。上次数据是 2 周前的。 &#9888;&#65039;</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:.9rem;padding:clamp(.3rem,.6vh,.48rem) clamp(.6rem,1.1vw,.9rem);background:var(--bgc);border:1px solid var(--bd);border-left:3px solid var(--rd);border-radius:0 8px 8px 0">
+          <span style="font-family:var(--mn);font-size:var(--fb);font-weight:700;color:var(--am);min-width:3.1rem;flex-shrink:0">11:00</span>
+          <span style="font-size:var(--fb)">客户投诉：交期延误。一查，供应商 3 天前就断供了——没人上报。 &#128308;</span>
+        </div>
+      </div>
+      <div class="rv" style="margin-top:clamp(.35rem,.7vh,.55rem);padding:clamp(.3rem,.6vh,.5rem) clamp(.6rem,1.2vw,1rem);background:var(--td);border:1px solid rgba(0,201,167,.25);border-radius:8px;transition-delay:.2s">
+        <span style="font-size:var(--fb)">张总不缺勤奋的员工。他缺的是一套系统，让他 <strong class="tc">看得见</strong> 进度、<strong class="tc">接得住</strong> 异常、<strong class="tc">盯得住</strong> 落地。</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- S3 THREE LAYERS -->
+  <section class="S" id="s3" data-n="03 / 11">
+    <div class="topo"></div>
+    <div class="SC">
+      <div class="ey rv">本质 / Root Cause</div>
+      <h2 class="sh rv">企业缺的不是更多工具——是一套执行体系</h2>
+      <p class="sp rv">你有 ERP 管数据、OA 管审批——但谁在管「事情有没有真正落地」？</p>
+      <div class="rv" style="display:flex;flex-direction:column;gap:0;transition-delay:.1s">
+        <div style="display:flex;align-items:center;gap:.8rem;padding:clamp(.38rem,.75vh,.6rem) clamp(.6rem,1.1vw,.9rem);background:rgba(107,123,141,.1);border:1px solid rgba(107,123,141,.22);border-bottom:none;border-radius:8px 8px 0 0">
+          <span style="font-size:1.15em;flex-shrink:0;color:var(--tl)">◈</span>
+          <div style="flex:1"><span style="font-size:var(--fb);font-weight:700;color:var(--sl)">数据层</span><span style="font-size:var(--fs);color:var(--st);margin-left:.5rem">ERP · 财务 · 进销存</span><div style="font-size:var(--fl);color:var(--st)">"我知道仓库里有什么、账上有多少"</div></div>
+          <span style="font-size:var(--fs);font-weight:700;color:var(--gn);background:rgba(39,174,96,.12);border:1px solid rgba(39,174,96,.25);padding:.1rem .45rem;border-radius:4px;flex-shrink:0">&#9989; 大多数企业已有</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:.8rem;padding:clamp(.38rem,.75vh,.6rem) clamp(.6rem,1.1vw,.9rem);background:rgba(107,123,141,.1);border:1px solid rgba(107,123,141,.22);border-bottom:none">
+          <span style="font-size:1.15em;flex-shrink:0;color:var(--tl)">◈</span>
+          <div style="flex:1"><span style="font-size:var(--fb);font-weight:700;color:var(--sl)">流程层</span><span style="font-size:var(--fs);color:var(--st);margin-left:.5rem">OA · 审批 · 协同</span><div style="font-size:var(--fl);color:var(--st)">"我知道谁批了什么、流程走到哪一步"</div></div>
+          <span style="font-size:var(--fs);font-weight:700;color:var(--gn);background:rgba(39,174,96,.12);border:1px solid rgba(39,174,96,.25);padding:.1rem .45rem;border-radius:4px;flex-shrink:0">&#9989; 大多数企业已有</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:.8rem;padding:clamp(.38rem,.75vh,.6rem) clamp(.6rem,1.1vw,.9rem);background:rgba(0,201,167,.07);border:2px solid rgba(0,201,167,.4);border-radius:0 0 8px 8px">
+          <span style="font-size:1.15em;flex-shrink:0;color:var(--am)">◈</span>
+          <div style="flex:1"><span style="font-size:var(--fb);font-weight:700;color:var(--wh)">执行层</span><span style="font-size:var(--fs);color:var(--tl);margin-left:.5rem">???</span><div style="font-size:var(--fl);color:var(--sl)">"任务真的落地了吗？进度正常吗？风险在哪？"</div></div>
+          <span style="font-size:var(--fs);font-weight:700;color:var(--rd);background:var(--rdd);border:1px solid rgba(231,76,60,.3);padding:.1rem .45rem;border-radius:4px;flex-shrink:0">&#10060; 几乎没有企业有</span>
+        </div>
+      </div>
+      <div class="rv g3" style="margin-top:clamp(.4rem,.8vh,.65rem);transition-delay:.18s">
+        <div style="padding:clamp(.3rem,.6vh,.5rem);background:var(--bgc);border:1px solid var(--bd);border-radius:8px"><div style="font-size:var(--fs);font-weight:700;color:var(--wh);margin-bottom:.1rem"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg> 制造业</div><div style="font-size:var(--fl);color:var(--sl);line-height:1.5">排产排了，产线真的按时开了吗？质量数据谁在实时盯？</div></div>
+        <div style="padding:clamp(.3rem,.6vh,.5rem);background:var(--bgc);border:1px solid var(--bd);border-radius:8px"><div style="font-size:var(--fs);font-weight:700;color:var(--wh);margin-bottom:.1rem"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg> 贸易/服务</div><div style="font-size:var(--fl);color:var(--sl);line-height:1.5">合同签了，交付节点谁在追？客户满意度谁在监控？</div></div>
+        <div style="padding:clamp(.3rem,.6vh,.5rem);background:var(--bgc);border:1px solid var(--bd);border-radius:8px"><div style="font-size:var(--fs);font-weight:700;color:var(--wh);margin-bottom:.1rem"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> 零售/连锁</div><div style="font-size:var(--fl);color:var(--sl);line-height:1.5">促销方案下达了，门店真的执行了吗？库存联动了吗？</div></div>
+      </div>
+      <div class="rv" style="margin-top:clamp(.3rem,.55vh,.45rem);text-align:center;font-size:var(--fb);font-weight:700;color:var(--tl);transition-delay:.26s">不分行业——只要有人、有流程、有任务，就有执行断层。</div>
+    </div>
+  </section>
+
+  <!-- S4 THREE VALUES: SEE / THINK / ACT -->
+  <section class="S" id="s4" data-n="04 / 11">
+    <div class="topo"></div><div class="xh" style="top:12%;right:16%"></div><div class="xh" style="top:10%;right:18%"></div>
+    <div class="SC">
+      <div class="ey rv">方案 / Our Answer</div>
+      <h2 class="sh rv">智枢 AI 执行层——<span class="tc">能看、能想、能做</span></h2>
+      <p class="sp rv">不是替代人，是给整个企业装一套能感知、能判断、能行动的智能系统。</p>
+      <div class="rv g3" style="transition-delay:.1s">
+        <div class="cd" style="border-top:2px solid var(--tl);text-align:center;display:flex;flex-direction:column;align-items:center">
+          <div style="color:var(--tl);margin-bottom:.2rem"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <div class="ct" style="color:var(--tl)">千里眼（看见）</div>
+          <div style="font-size:var(--fs);font-weight:600;margin-bottom:.12rem">实时业务透视</div>
+          <div class="cb" style="font-size:var(--fl)">任务进度 · 异常信号 · 关键指标</div>
+          <div style="font-size:var(--fl);color:var(--st);font-style:italic;margin-top:.3rem;border-top:1px solid var(--bd);padding-top:.22rem;width:100%;line-height:1.5">"我终于知道公司每天在发生什么了"</div>
+        </div>
+        <div class="cd" style="border-top:2px solid #5B8DEF;text-align:center;display:flex;flex-direction:column;align-items:center">
+          <div style="color:#5B8DEF;margin-bottom:.2rem"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></div>
+          <div class="ct" style="color:#5B8DEF">军师（判断）</div>
+          <div style="font-size:var(--fs);font-weight:600;margin-bottom:.12rem">智能决策建议</div>
+          <div class="cb" style="font-size:var(--fl)">风险预警 · 优先级排序 · 方案推荐</div>
+          <div style="font-size:var(--fl);color:var(--st);font-style:italic;margin-top:.3rem;border-top:1px solid var(--bd);padding-top:.22rem;width:100%;line-height:1.5">"系统告诉我哪里有问题、该怎么做"</div>
+        </div>
+        <div class="cd" style="border-top:2px solid var(--am);text-align:center;display:flex;flex-direction:column;align-items:center">
+          <div style="color:var(--am);margin-bottom:.2rem"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <div class="ct" style="color:var(--am)">执行官（执行）</div>
+          <div style="font-size:var(--fs);font-weight:600;margin-bottom:.12rem">自动化业务流程</div>
+          <div class="cb" style="font-size:var(--fl)">自动派单 · 定时推送 · 流程触发</div>
+          <div style="font-size:var(--fl);color:var(--st);font-style:italic;margin-top:.3rem;border-top:1px solid var(--bd);padding-top:.22rem;width:100%;line-height:1.5">"很多事不用人盯，系统自动跑"</div>
+        </div>
+      </div>
+      <div class="rv" style="margin-top:clamp(.35rem,.7vh,.55rem);padding:clamp(.28rem,.55vh,.45rem) clamp(.6rem,1.2vw,1rem);background:var(--td);border:1px solid rgba(0,201,167,.2);border-radius:8px;text-align:center;transition-delay:.2s">
+        <span style="font-size:var(--fs);color:var(--sl)">事件发生</span> <span class="tc">&#8594;</span> <span style="font-size:var(--fs);color:var(--sl)">系统感知</span> <span class="tc">&#8594;</span> <span style="font-size:var(--fs);color:var(--sl)">智能判断</span> <span class="tc">&#8594;</span> <span style="font-size:var(--fs);color:var(--sl)">自动执行</span> <span class="tc">&#8594;</span> <span style="font-size:var(--fs);color:var(--sl)">结果验证</span>
+        <div style="font-size:var(--fl);color:var(--st);margin-top:.2rem">从「发生了」到「处理完了」——从天级变成分钟级</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S5 FOUR AI PARTNERS -->
+  <section class="S" id="s5" data-n="05 / 11">
+    <div class="topo"></div><div class="xh" style="top:8%;right:20%"></div><div class="xh" style="bottom:15%;left:12%"></div>
+    <div class="SC">
+      <div class="ey rv">产品 / AI Partners</div>
+      <h2 class="sh rv">你的 AI 搭档团队</h2>
+      <p class="sp rv">4 个角色，接入你现有的系统，不需要换软件。零替换原则——AI 搭档像「新同事」一样融入。</p>
+      <div class="rv g2" style="transition-delay:.1s">
+        <div class="cd" style="border-top:2px solid var(--tl)">
+          <div style="font-size:1.1em;margin-bottom:.15rem"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg> <span class="ct" style="display:inline">运营搭档</span></div>
+          <div class="cb" style="font-size:var(--fl)">每日推送业务要点 · 任务进度追踪 + 超期预警 · 异常事件自动升级</div>
+          <div style="font-size:var(--fl);color:var(--st);margin-top:.2rem;padding-top:.2rem;border-top:1px solid var(--bd)">接入：OA · IM · 项目管理</div>
+        </div>
+        <div class="cd" style="border-top:2px solid var(--am)">
+          <div style="font-size:1.1em;margin-bottom:.15rem"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg> <span class="ct" style="display:inline">采购搭档</span></div>
+          <div class="cb" style="font-size:var(--fl)">自动比价 + 到货追踪 · 库存水位预警 + 补货建议 · 供应商交期风险预测</div>
+          <div style="font-size:var(--fl);color:var(--st);margin-top:.2rem;padding-top:.2rem;border-top:1px solid var(--bd)">接入：ERP · 供应商系统</div>
+        </div>
+        <div class="cd" style="border-top:2px solid #5B8DEF">
+          <div style="font-size:1.1em;margin-bottom:.15rem"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg> <span class="ct" style="display:inline">项目管理搭档</span></div>
+          <div class="cb" style="font-size:var(--fl)">里程碑自动追踪 · 跨部门协作状态看板 · 风险事项智能排序</div>
+          <div style="font-size:var(--fl);color:var(--st);margin-top:.2rem;padding-top:.2rem;border-top:1px solid var(--bd)">接入：项目工具 · Excel · IM</div>
+        </div>
+        <div class="cd" style="border-top:2px solid var(--gn)">
+          <div style="font-size:1.1em;margin-bottom:.15rem"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> <span class="ct" style="display:inline">财务搭档</span></div>
+          <div class="cb" style="font-size:var(--fl)">应收/应付自动对账提醒 · 现金流预警 + 异常交易标记 · 报表自动生成</div>
+          <div style="font-size:var(--fl);color:var(--st);margin-top:.2rem;padding-top:.2rem;border-top:1px solid var(--bd)">接入：ERP · 财务系统 · Excel</div>
+        </div>
+      </div>
+      <div class="rv" style="margin-top:clamp(.3rem,.6vh,.5rem);padding:clamp(.25rem,.5vh,.4rem) clamp(.6rem,1.2vw,1rem);background:var(--td);border:1px solid rgba(0,201,167,.2);border-radius:8px;transition-delay:.2s">
+        <span style="font-size:var(--fs)"><strong class="tc">⊕ 零替换原则：</strong><span style="color:var(--sl)">不换你的 ERP，不换你的 OA，不换你的 IM。AI 搭档接入现有系统，用你已有的数据工作。</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- S6 EVERY ROLE HAS A PARTNER -->
+  <section class="S" id="s6" data-n="06 / 11">
+    <div class="topo"></div><div class="xh" style="top:14%;right:25%"></div>
+    <div class="SC">
+      <div class="ey rv">全员 / Everyone Gets a Partner</div>
+      <h2 class="sh rv">不只是管理层的工具——每个人都能用</h2>
+      <p class="sp rv">把重复的交给系统，把判断的留给人。不是替代团队——是让每个人都能做更有价值的事。</p>
+      <div class="rv" style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gp);transition-delay:.1s">
+        <div class="cd">
+          <div style="font-size:.95em;font-weight:700;margin-bottom:.15rem"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> 工程师</div>
+          <div class="cb" style="font-size:var(--fl)">自动整理技术文档 · 追踪 bug 状态 · 同步上下游进度</div>
+          <div style="font-size:var(--fl);color:var(--tl);margin-top:.2rem">&#8594; 时间花在写代码，不是开会对齐</div>
+        </div>
+        <div class="cd">
+          <div style="font-size:.95em;font-weight:700;margin-bottom:.15rem"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg> 采购</div>
+          <div class="cb" style="font-size:var(--fl)">自动比价 · 供应商交期预警 · 历史价格趋势分析</div>
+          <div style="font-size:var(--fl);color:var(--tl);margin-top:.2rem">&#8594; 从「跟单员」升级为「采购策略师」</div>
+        </div>
+        <div class="cd">
+          <div style="font-size:.95em;font-weight:700;margin-bottom:.15rem"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> 销售</div>
+          <div class="cb" style="font-size:var(--fl)">自动跟进客户状态 · 合同到期提醒 · 竞品动态推送</div>
+          <div style="font-size:var(--fl);color:var(--tl);margin-top:.2rem">&#8594; 精力放在关系维护和大客户攻坚</div>
+        </div>
+        <div class="cd">
+          <div style="font-size:.95em;font-weight:700;margin-bottom:.15rem"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg> 客服</div>
+          <div class="cb" style="font-size:var(--fl)">常见问题自动回复 · 工单智能分类 · 升级规则自动触发</div>
+          <div style="font-size:var(--fl);color:var(--tl);margin-top:.2rem">&#8594; 只处理真正需要人判断的复杂问题</div>
+        </div>
+        <div class="cd">
+          <div style="font-size:.95em;font-weight:700;margin-bottom:.15rem"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> HR</div>
+          <div class="cb" style="font-size:var(--fl)">考勤异常自动标记 · 入离职流程自动推进 · 培训进度追踪</div>
+          <div style="font-size:var(--fl);color:var(--tl);margin-top:.2rem">&#8594; 从事务性工作中解放，专注组织发展</div>
+        </div>
+        <div class="cd">
+          <div style="font-size:.95em;font-weight:700;margin-bottom:.15rem"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg> 项目经理</div>
+          <div class="cb" style="font-size:var(--fl)">里程碑自动追踪 · 跨团队状态汇总 · 风险预警排序</div>
+          <div style="font-size:var(--fl);color:var(--tl);margin-top:.2rem">&#8594; 从「催进度的人」变成「做决策的人」</div>
+        </div>
+      </div>
+      <div class="rv" style="margin-top:clamp(.3rem,.6vh,.5rem);text-align:center;font-size:var(--fb);font-weight:700;color:var(--wh);transition-delay:.22s">把重复的交给系统，把判断的留给人。</div>
+    </div>
+  </section>
+
+  <!-- S7 MONDAY MORNING AFTER -->
+  <section class="S" id="s7" data-n="07 / 11">
+    <div class="topo"></div><div class="xh" style="bottom:18%;right:15%"></div>
+    <div class="SC">
+      <div class="ey rv">对比 / Before &amp; After</div>
+      <h2 class="sh rv">张总部署智枢 3 个月后的周一早晨</h2>
+      <p class="sp rv">从「救火」变成「下棋」。</p>
+      <div class="rv g2" style="transition-delay:.1s">
+        <div style="display:flex;flex-direction:column;gap:clamp(.22rem,.45vh,.35rem)">
+          <div style="font-family:var(--mn);font-size:var(--fl);letter-spacing:.1em;color:var(--rd);margin-bottom:.1rem">&#10006; 之前</div>
+          <div style="font-size:var(--fs);padding:clamp(.25rem,.5vh,.4rem) clamp(.5rem,1vw,.8rem);background:var(--rdd);border:1px solid rgba(231,76,60,.2);border-radius:6px;color:var(--sl);line-height:1.5">8:00 打开手机，47 条未读，逐条翻</div>
+          <div style="font-size:var(--fs);padding:clamp(.25rem,.5vh,.4rem) clamp(.5rem,1vw,.8rem);background:var(--rdd);border:1px solid rgba(231,76,60,.2);border-radius:6px;color:var(--sl);line-height:1.5">晨会 45 分钟，逐项对齐进度</div>
+          <div style="font-size:var(--fs);padding:clamp(.25rem,.5vh,.4rem) clamp(.5rem,1vw,.8rem);background:var(--rdd);border:1px solid rgba(231,76,60,.2);border-radius:6px;color:var(--sl);line-height:1.5">要数据等 2 天，拿到的还是上周的</div>
+          <div style="font-size:var(--fs);padding:clamp(.25rem,.5vh,.4rem) clamp(.5rem,1vw,.8rem);background:var(--rdd);border:1px solid rgba(231,76,60,.2);border-radius:6px;color:var(--sl);line-height:1.5">客户投诉才发现供应商断供</div>
+          <div style="font-size:var(--fs);padding:clamp(.25rem,.5vh,.4rem) clamp(.5rem,1vw,.8rem);background:var(--rdd);border:1px solid rgba(231,76,60,.2);border-radius:6px;color:var(--sl);line-height:1.5">月底才知道项目超预算</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:clamp(.22rem,.45vh,.35rem)">
+          <div style="font-family:var(--mn);font-size:var(--fl);letter-spacing:.1em;color:var(--tl);margin-bottom:.1rem">&#10003; 之后</div>
+          <div style="font-size:var(--fs);padding:clamp(.25rem,.5vh,.4rem) clamp(.5rem,1vw,.8rem);background:var(--td);border:1px solid rgba(0,201,167,.2);border-radius:6px;color:var(--wh);line-height:1.5">8:00 打开「今日要点」推送：3 件事需要关注，其余正常</div>
+          <div style="font-size:var(--fs);padding:clamp(.25rem,.5vh,.4rem) clamp(.5rem,1vw,.8rem);background:var(--td);border:1px solid rgba(0,201,167,.2);border-radius:6px;color:var(--wh);line-height:1.5">晨会 20 分钟，系统已提前同步状态，只讨论例外项</div>
+          <div style="font-size:var(--fs);padding:clamp(.25rem,.5vh,.4rem) clamp(.5rem,1vw,.8rem);background:var(--td);border:1px solid rgba(0,201,167,.2);border-radius:6px;color:var(--wh);line-height:1.5">随时看实时仪表盘，关键指标自动更新</div>
+          <div style="font-size:var(--fs);padding:clamp(.25rem,.5vh,.4rem) clamp(.5rem,1vw,.8rem);background:var(--td);border:1px solid rgba(0,201,167,.2);border-radius:6px;color:var(--wh);line-height:1.5">系统提前 3 天预警供应风险，已自动启动备选方案</div>
+          <div style="font-size:var(--fs);padding:clamp(.25rem,.5vh,.4rem) clamp(.5rem,1vw,.8rem);background:var(--td);border:1px solid rgba(0,201,167,.2);border-radius:6px;color:var(--wh);line-height:1.5">系统实时追踪预算消耗，超支 10% 自动报警</div>
+        </div>
+      </div>
+      <div class="rv" style="margin-top:clamp(.35rem,.7vh,.55rem);text-align:center;transition-delay:.2s">
+        <span style="font-size:var(--fb);color:var(--sl)">从「打开手机就焦虑」变成「看一眼推送就心里有数」。</span>
+        <strong class="tc"> 他管的不再是琐事——他管的是方向。</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- S8 FLYWHEEL + BUSINESS MODEL -->
+  <section class="S" id="s8" data-n="08 / 11">
+    <div class="topo"></div><div class="xh" style="top:10%;right:18%"></div><div class="xh" style="bottom:22%;left:15%"></div>
+    <div class="SC">
+      <div class="ey rv">模式 / Business Model</div>
+      <h2 class="sh rv">越用越聪明的执行体系</h2>
+      <p class="sp rv">你买的不是一个项目，是一个持续进化的执行系统。</p>
+      <div class="rv g2" style="transition-delay:.1s">
+        <!-- Flywheel -->
+        <div class="cd" style="display:flex;flex-direction:column;justify-content:space-between">
+          <div class="ct">⟳ 价值飞轮</div>
+          <div style="display:flex;flex-direction:column;gap:0;margin:clamp(.15rem,.3vh,.25rem) 0">
+            <div style="display:flex;align-items:center;gap:.5rem;padding:clamp(.2rem,.4vh,.32rem) clamp(.4rem,.8vw,.65rem);background:rgba(0,201,167,.08);border:1px solid rgba(0,201,167,.2);border-radius:6px 6px 0 0">
+              <span style="color:var(--tl)">●</span><span style="font-size:var(--fs);font-weight:600">部署上线</span><span class="tc" style="margin-left:auto;font-size:var(--fl)">&#8594;</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:.5rem;padding:clamp(.2rem,.4vh,.32rem) clamp(.4rem,.8vw,.65rem);background:rgba(0,201,167,.06);border:1px solid rgba(0,201,167,.15);border-left:none;border-right:none">
+              <span style="color:var(--tl)">●</span><span style="font-size:var(--fs);font-weight:600">数据积累</span><span class="tc" style="margin-left:auto;font-size:var(--fl)">&#8594;</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:.5rem;padding:clamp(.2rem,.4vh,.32rem) clamp(.4rem,.8vw,.65rem);background:rgba(0,201,167,.06);border:1px solid rgba(0,201,167,.15);border-bottom:none">
+              <span style="color:var(--tl)">●</span><span style="font-size:var(--fs);font-weight:600">系统更智能</span><span class="tc" style="margin-left:auto;font-size:var(--fl)">&#8594;</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:.5rem;padding:clamp(.2rem,.4vh,.32rem) clamp(.4rem,.8vw,.65rem);background:rgba(0,201,167,.06);border:1px solid rgba(0,201,167,.15);border-bottom:none">
+              <span style="color:var(--tl)">●</span><span style="font-size:var(--fs);font-weight:600">更多价值</span><span class="tc" style="margin-left:auto;font-size:var(--fl)">&#8594;</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:.5rem;padding:clamp(.2rem,.4vh,.32rem) clamp(.4rem,.8vw,.65rem);background:rgba(0,201,167,.08);border:1px solid rgba(0,201,167,.2);border-radius:0 0 6px 6px">
+              <span style="color:var(--tl)">●</span><span style="font-size:var(--fs);font-weight:600">客户留存 &#8594; 口碑传播</span><span class="tc" style="margin-left:auto;font-size:var(--fl)">&#8635;</span>
+            </div>
+          </div>
+          <div style="font-size:var(--fl);color:var(--st);line-height:1.5;font-style:italic">第 90 天的智枢和第 1 天的智枢，不是同一个系统。</div>
+        </div>
+        <!-- Two-phase model -->
+        <div style="display:flex;flex-direction:column;gap:var(--gp)">
+          <div class="cd" style="border-top:2px solid var(--tl)">
+            <div style="font-family:var(--mn);font-size:var(--fl);letter-spacing:.08em;color:var(--tl)">PHASE 1 · 部署期（90天）</div>
+            <div class="ct">Deployment</div>
+            <div style="font-size:var(--fl);color:var(--sl);line-height:1.6">
+              <span class="tc">·</span> 业务诊断 + ROI 建模<br>
+              <span class="tc">·</span> 系统开发 + 集成<br>
+              <span class="tc">·</span> 全员培训 + 上线交付
+            </div>
+            <div style="font-family:var(--en);font-size:clamp(.9rem,1.7vw,1.2rem);font-weight:800;color:var(--tl);margin-top:.3rem">¥30 万起<span style="font-size:.6em;font-weight:500;color:var(--sl)">（按规模）</span></div>
+          </div>
+          <div class="cd" style="border-top:2px solid var(--am)">
+            <div style="font-family:var(--mn);font-size:var(--fl);letter-spacing:.08em;color:var(--am)">PHASE 2 · 进化期（持续）</div>
+            <div class="ct">Evolution</div>
+            <div style="font-size:var(--fl);color:var(--sl);line-height:1.6">
+              <span class="ac">·</span> 专属运营工程师<br>
+              <span class="ac">·</span> 月度优化报告<br>
+              <span class="ac">·</span> 模型迭代 + 场景扩展
+            </div>
+            <div style="font-family:var(--en);font-size:clamp(.9rem,1.7vw,1.2rem);font-weight:800;color:var(--am);margin-top:.3rem">¥3 万起<span style="font-size:.6em;font-weight:500;color:var(--sl)">/月</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S9 WHY ZHISHU – FOUR OPTIONS -->
+  <section class="S" id="s9" data-n="09 / 11">
+    <div class="topo"></div><div class="xh" style="top:15%;right:12%"></div>
+    <div class="SC">
+      <div class="ey rv">定位 / Why Zhishu</div>
+      <h2 class="sh rv">第四种选择</h2>
+      <p class="sp rv">不是 SaaS，不是外包，不是自建——是一种新的合作方式。</p>
+      <div class="rv" style="display:flex;flex-direction:column;gap:clamp(.22rem,.45vh,.35rem);transition-delay:.1s">
+        <div style="display:flex;align-items:center;gap:clamp(.6rem,1.2vw,1rem);padding:clamp(.28rem,.55vh,.44rem) clamp(.6rem,1.1vw,.9rem);background:rgba(107,123,141,.08);border:1px solid rgba(107,123,141,.18);border-radius:8px;opacity:.75">
+          <div style="font-family:var(--mn);font-size:var(--fb);font-weight:700;color:var(--st);min-width:1.6rem;text-align:center">A</div>
+          <div style="flex:1">
+            <span style="font-size:var(--fb);font-weight:700">自己招 AI 团队</span>
+            <span style="font-size:var(--fs);color:var(--st);margin-left:.5rem">完全自主可控</span>
+          </div>
+          <div style="font-size:var(--fl);color:var(--st);text-align:right;line-height:1.4">招聘 3–6 个月 · 年成本 ¥150–300 万 · 试错成本无上限</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:clamp(.6rem,1.2vw,1rem);padding:clamp(.28rem,.55vh,.44rem) clamp(.6rem,1.1vw,.9rem);background:rgba(107,123,141,.08);border:1px solid rgba(107,123,141,.18);border-radius:8px;opacity:.75">
+          <div style="font-family:var(--mn);font-size:var(--fb);font-weight:700;color:var(--st);min-width:1.6rem;text-align:center">B</div>
+          <div style="flex:1">
+            <span style="font-size:var(--fb);font-weight:700">买通用 SaaS</span>
+            <span style="font-size:var(--fs);color:var(--st);margin-left:.5rem">标准化功能，即买即用</span>
+          </div>
+          <div style="font-size:var(--fl);color:var(--st);text-align:right;line-height:1.4">不懂你的业务 · 数据在别人手上 · 定制靠排队</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:clamp(.6rem,1.2vw,1rem);padding:clamp(.28rem,.55vh,.44rem) clamp(.6rem,1.1vw,.9rem);background:rgba(107,123,141,.08);border:1px solid rgba(107,123,141,.18);border-radius:8px;opacity:.75">
+          <div style="font-family:var(--mn);font-size:var(--fb);font-weight:700;color:var(--st);min-width:1.6rem;text-align:center">C</div>
+          <div style="flex:1">
+            <span style="font-size:var(--fb);font-weight:700">传统 IT 集成商</span>
+            <span style="font-size:var(--fs);color:var(--st);margin-left:.5rem">深度定制</span>
+          </div>
+          <div style="font-size:var(--fl);color:var(--st);text-align:right;line-height:1.4">12–18 个月周期 · 交付即撤退 · 动辄 ¥200 万起</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:clamp(.6rem,1.2vw,1rem);padding:clamp(.3rem,.6vh,.48rem) clamp(.6rem,1.1vw,.9rem);background:rgba(0,201,167,.08);border:2px solid rgba(0,201,167,.4);border-radius:8px">
+          <div style="font-family:var(--mn);font-size:var(--fb);font-weight:800;color:var(--tl);min-width:1.6rem;text-align:center">D</div>
+          <div style="flex:1">
+            <span style="font-size:var(--fb);font-weight:800;color:var(--tl)">智枢科技</span>
+            <span style="font-size:var(--fs);color:var(--sl);margin-left:.5rem">AI 原生能力 + 90 天部署 + 持续运营</span>
+          </div>
+          <div style="font-size:var(--fl);color:var(--tl);text-align:right;line-height:1.4;font-weight:600">像内部团队一样懂你<br>像 SaaS 一样快速上线<br>像合伙人一样持续陪跑</div>
+        </div>
+      </div>
+      <div class="rv" style="margin-top:clamp(.3rem,.6vh,.5rem);text-align:center;font-size:var(--fb);color:var(--sl);transition-delay:.22s">
+        <strong class="tc">AI 能力足够强 × 部署足够快 × 持续运营 × 买得起</strong> — 这就是我们的位置。
+      </div>
+    </div>
+  </section>
+
+  <!-- S10 TEAM & ROADMAP -->
+  <section class="S" id="s10" data-n="10 / 11">
+    <div class="topo"></div><div class="xh" style="bottom:16%;right:20%"></div>
+    <div class="SC">
+      <div class="ey rv">团队 / Team &amp; Roadmap</div>
+      <h2 class="sh rv">精干团队 × Bootstrap × 清晰路径</h2>
+      <div class="rv g2" style="gap:clamp(.8rem,2vw,1.5rem);transition-delay:.1s">
+        <!-- Team -->
+        <div class="cd">
+          <div class="ct">创始团队</div>
+          <div style="font-size:var(--fs);color:var(--sl);line-height:1.6;margin-top:clamp(.08rem,.15vh,.12rem)">
+            AI 系统工程 + 企业运营管理交叉背景。<br>
+            深度参与制造、贸易、服务业数字化项目。<br>
+            Bootstrap 模式——靠交付挣钱，不靠融资烧钱。
+          </div>
+          <blockquote style="border-left:2px solid var(--tl);padding-left:.5rem;font-style:italic;margin-top:clamp(.15rem,.3vh,.25rem);font-size:var(--fl);color:var(--st);line-height:1.55">
+            "能让客户续费的公司，比能让投资人打款的公司更值得信任。每一分收入都来自客户认可的交付价值。"
+          </blockquote>
+        </div>
+        <!-- Roadmap -->
+        <div class="cd">
+          <div class="ct">发展路线</div>
+          <div style="position:relative;padding-left:clamp(.8rem,1.5vw,1.2rem);margin-top:clamp(.1rem,.2vh,.15rem)">
+            <div style="position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--tl),var(--td),transparent)"></div>
+            <div style="position:relative;padding-bottom:clamp(.35rem,.7vh,.55rem)">
+              <div style="position:absolute;left:calc(-1.2rem - 3px);top:.2rem;width:8px;height:8px;background:var(--tl);border-radius:50%;border:2px solid var(--nd)"></div>
+              <div style="font-family:var(--mn);font-size:var(--fl);color:var(--tl)">2026 H1</div>
+              <div style="font-size:var(--fs);font-weight:700">首批行业客户交付</div>
+              <div style="font-size:var(--fl);color:var(--sl)">制造 + 贸易企业 2–3 家，验证执行层价值</div>
+            </div>
+            <div style="position:relative;padding-bottom:clamp(.35rem,.7vh,.55rem)">
+              <div style="position:absolute;left:calc(-1.2rem - 3px);top:.2rem;width:8px;height:8px;background:var(--tl);border-radius:50%;border:2px solid var(--nd)"></div>
+              <div style="font-family:var(--mn);font-size:var(--fl);color:var(--tl)">2026 H2</div>
+              <div style="font-size:var(--fs);font-weight:700">搭档模块标准化</div>
+              <div style="font-size:var(--fl);color:var(--sl)">项目经验抽象为可复用 AI 搭档模块</div>
+            </div>
+            <div style="position:relative;padding-bottom:clamp(.35rem,.7vh,.55rem)">
+              <div style="position:absolute;left:calc(-1.2rem - 3px);top:.2rem;width:8px;height:8px;background:var(--am);border-radius:50%;border:2px solid var(--nd)"></div>
+              <div style="font-family:var(--mn);font-size:var(--fl);color:var(--am)">2027 H1</div>
+              <div style="font-size:var(--fs);font-weight:700">行业扩展 + 渠道</div>
+              <div style="font-size:var(--fl);color:var(--sl)">服务、零售、连锁等行业复制，合作伙伴渠道</div>
+            </div>
+            <div style="position:relative">
+              <div style="position:absolute;left:calc(-1.2rem - 3px);top:.2rem;width:8px;height:8px;background:var(--sl);border-radius:50%;border:2px solid var(--nd)"></div>
+              <div style="font-family:var(--mn);font-size:var(--fl);color:var(--sl)">2027 H2+</div>
+              <div style="font-size:var(--fs);font-weight:700">AI 搭档平台化</div>
+              <div style="font-size:var(--fl);color:var(--sl)">搭档市场 · 企业自助配置 · 社区驱动进化</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S11 CTA -->
+  <section class="S" id="s11" data-n="11 / 11" style="background:linear-gradient(135deg,var(--nd) 0%,var(--navy) 100%)">
+    <div class="gw" style="width:40vw;height:40vw;max-width:500px;max-height:500px;top:50%;left:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(0,201,167,.06) 0%,transparent 70%)"></div>
+    <div class="topo"></div>
+    <div class="SC" style="align-items:center;text-align:center">
+      <div class="ey rv" style="justify-content:center">下一步 / Next Step</div>
+      <h2 class="rv" style="font-size:var(--f1);font-weight:800;line-height:1.2;margin-bottom:clamp(.35rem,.8vh,.7rem)">3 天，看看你的企业适不适合</h2>
+      <p class="rv" style="font-size:var(--fb);color:var(--sl);max-width:480px;line-height:1.7;margin-bottom:clamp(.5rem,1.2vh,1rem)">
+        零风险，零义务。3 天业务体检，给你一份带数字的诊断报告。
+      </p>
+      <!-- Three-step flow -->
+      <div class="rv" style="display:flex;align-items:center;gap:clamp(.5rem,1.2vw,1rem);margin-bottom:clamp(.5rem,1.2vh,1rem);flex-wrap:wrap;justify-content:center;transition-delay:.12s">
+        <div style="background:var(--td);border:1px solid rgba(0,201,167,.25);border-radius:10px;padding:clamp(.28rem,.55vh,.45rem) clamp(.5rem,1vw,.8rem);text-align:center">
+          <div style="font-size:var(--f3);font-weight:700;color:var(--tl)">3 天业务体检</div>
+          <div style="font-size:var(--fl);color:var(--sl)">Free Health Check</div>
+        </div>
+        <div style="font-size:clamp(.8rem,1.2vw,1rem);color:var(--st)">&#8594;</div>
+        <div style="background:var(--bgc);border:1px solid var(--bd);border-radius:10px;padding:clamp(.28rem,.55vh,.45rem) clamp(.5rem,1vw,.8rem);text-align:center">
+          <div style="font-size:var(--f3);font-weight:700">明确 ROI 目标</div>
+          <div style="font-size:var(--fl);color:var(--sl)">Define ROI</div>
+        </div>
+        <div style="font-size:clamp(.8rem,1.2vw,1rem);color:var(--st)">&#8594;</div>
+        <div style="background:var(--bgc);border:1px solid var(--bd);border-radius:10px;padding:clamp(.28rem,.55vh,.45rem) clamp(.5rem,1vw,.8rem);text-align:center">
+          <div style="font-size:var(--f3);font-weight:700">决定是否启动</div>
+          <div style="font-size:var(--fl);color:var(--sl)">Go / No-Go</div>
+        </div>
+      </div>
+      <!-- Commitments -->
+      <div class="rv" style="font-size:var(--fs);color:var(--sl);line-height:1.7;max-width:520px;text-align:left;transition-delay:.18s">
+        <div><span class="tc">&#10003;</span> <strong>3 天远程/现场业务体检</strong>——诊断核心业务流程，找出执行断点</div>
+        <div><span class="tc">&#10003;</span> <strong>交付物：《岗位数字化诊断报告》</strong>——附 ROI 测算，无论合作与否都归你</div>
+        <div><span class="tc">&#10003;</span> <strong>零义务</strong>——报告交付后无任何跟进压力。AI 不是你现阶段的解，我们直说</div>
+        <div><span class="tc">&#10003;</span> <strong>数据安全</strong>——所有系统私有化部署，数据留在你的服务器上</div>
+      </div>
+      <!-- CTA Button -->
+      <div class="rv" style="margin-top:clamp(.4rem,.8vh,.7rem);transition-delay:.22s">
+        <a href="mailto:contact@zhishu.ai?subject=申请业务体检" style="display:inline-block;background:var(--tl);color:var(--nd);padding:.5rem 1.8rem;border-radius:6px;font-weight:700;font-size:var(--fb);text-decoration:none;transition:all .3s;letter-spacing:.02em">申请免费体检 →</a>
+      </div>
+      <!-- Contact -->
+      <div class="rv" style="margin-top:clamp(.3rem,.5vh,.4rem);transition-delay:.26s">
+        <div style="font-size:var(--fs);color:var(--st);margin-bottom:clamp(.15rem,.3vh,.2rem)"><a href="mailto:contact@zhishu.ai" style="color:var(--sl);text-decoration:none">📧 contact@zhishu.ai</a> &nbsp;·&nbsp; 🌐 zhishu.ai</div>
+        <div style="font-size:clamp(.9rem,1.6vw,1.15rem);font-weight:700;color:var(--tl);letter-spacing:.05em">
+          智枢科技 — AI 执行层，让每个决策都有人跟、每个任务都有人盯。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    (function() {
+      'use strict';
+      var slides = document.querySelectorAll('.S');
+      var dots = document.getElementById('nd');
+      var pb = document.getElementById('pb');
+      var total = slides.length;
+      var current = 0;
+
+      // Build navigation dots
+      for (var i = 0; i < total; i++) {
+        var dot = document.createElement('button');
+        dot.className = 'dot' + (i === 0 ? ' on' : '');
+        dot.setAttribute('aria-label', '幻灯片 ' + (i + 1));
+        dot.dataset.idx = i;
+        dot.addEventListener('click', function() { goTo(parseInt(this.dataset.idx)); });
+        dots.appendChild(dot);
+      }
+
+      function goTo(idx) {
+        if (idx < 0 || idx >= total) return;
+        current = idx;
+        slides[idx].scrollIntoView({ behavior: 'smooth' });
+        updateUI();
+      }
+
+      function updateUI() {
+        pb.style.width = ((current + 1) / total * 100) + '%';
+        var allDots = dots.querySelectorAll('.dot');
+        for (var i = 0; i < allDots.length; i++) {
+          allDots[i].classList.toggle('on', i === current);
+        }
+      }
+
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('vis');
+              for (var i = 0; i < slides.length; i++) {
+                if (slides[i] === entry.target) { current = i; updateUI(); break; }
+              }
+            }
+          });
+        }, { threshold: 0.5 });
+        slides.forEach(function(slide) { observer.observe(slide); });
+      } else {
+        slides.forEach(function(s) { s.classList.add('vis'); });
+      }
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); goTo(current + 1); }
+        else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') { e.preventDefault(); goTo(current - 1); }
+        else if (e.key === 'Home') { e.preventDefault(); goTo(0); }
+        else if (e.key === 'End') { e.preventDefault(); goTo(total - 1); }
+      });
+
+      var touchStartY = 0, touchStartX = 0;
+      document.addEventListener('touchstart', function(e) {
+        touchStartY = e.changedTouches[0].screenY;
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+      document.addEventListener('touchend', function(e) {
+        var dy = e.changedTouches[0].screenY - touchStartY;
+        var dx = e.changedTouches[0].screenX - touchStartX;
+        if (Math.abs(dy) > Math.abs(dx) && Math.abs(dy) > 50) {
+          if (dy < 0) goTo(current + 1); else goTo(current - 1);
+        }
+      }, { passive: true });
+
+      slides[0].classList.add('vis');
+      updateUI();
+
+      var hint = document.getElementById('kh');
+      if (hint) {
+        setTimeout(function() { hint.style.opacity = '0'; }, 4000);
+        setTimeout(function() { hint.style.display = 'none'; }, 4600);
+      }
+    })();
+  </script>
+
+  <div id="kh" style="position:fixed;bottom:clamp(1rem,2vh,1.5rem);left:50%;transform:translateX(-50%);font-family:var(--mn);font-size:clamp(.55rem,.75vw,.65rem);color:var(--st);letter-spacing:.1em;z-index:999;transition:opacity .6s;pointer-events:none">
+    &#8592; &#8594; SPACE 导航 · SCROLL 翻页
+  </div>
+</body>
+</html>
