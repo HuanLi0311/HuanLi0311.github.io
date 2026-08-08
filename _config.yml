@@ -8,9 +8,9 @@
 # Site Settings
 title                    : "Xiaolong Luo | Harvard Ph.D. Student"
 description              : ""
-repository               : "AaronLuo00/AaronLuo00.github.io"
+repository               : "HuanLi0311/HuanLi0311.github.io"
 baseurl                 : ""
-url                     : "https://aaronluo00.github.io"
+url                     : "https://huanli0311.github.io"
 google_scholar_stats_use_cdn : true
 
 # google analytics
