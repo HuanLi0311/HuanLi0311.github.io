@@ -28,4 +28,4 @@ main:
     url: '/#-contact'
 
   - title: 'Blog'
-    url: 'https://aaronluo00.github.io/my-blog/'
+    url: '/blog'
