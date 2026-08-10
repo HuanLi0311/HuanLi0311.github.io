@@ -13,7 +13,7 @@ Welcome to my homepage! I'm a 28fall undergraduate majoring in Automation. Early
 
 Over the past thinking and experience, I'm now dedicated to building long‑horizon agents via well‑specified harness designs that bridge models and application environments. I expect to enable high‑quality context engineering and agentic data construction for agent‑native post‑training, toward improved models and practical products.
 
-<span style="color: #E74C3C; font-weight: bold; padding: 5px 10px; border-radius: 4px; background-color: rgba(231, 76, 60, 0.1);">🤝 I am actively seeking internship and collaborations in language/agent domains! If you're interested in agentic post-training & data & products or any related fields, feel free to reach out!</span>
+<span style="color: #E74C3C; font-weight: bold; padding: 5px 10px; border-radius: 4px; background-color: rgba(231, 76, 60, 0.1);">🤝 I am actively seeking internship and collaborations in language/agent domains! If you're interested in agentic post-training / data / products or any related fields, feel free to reach out!</span>
 
 <!-- <span style="color: #2E86AB; font-weight: bold; padding: 5px 10px; border-radius: 4px; background-color: rgba(46, 134, 171, 0.1);">📋 Note: I am currently looking for summer 2026 internships! If you know of any suitable positions, I'd love your recommendations. Also always happy to chat over coffee!</span> -->
 
