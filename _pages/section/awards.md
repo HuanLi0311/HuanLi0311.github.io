@@ -1,4 +1,4 @@
 # Honors and Awards
 
-- Second Prize, Beijing Division, Chinese Mathematical Olympiad (CMO)
-- First Prize, Wuhan Station, 2025 Hackathon Challenge
+- Second Prize, Beijing Division, Chinese Mathematical Olympiad (2022)
+- First Prize, Wuhan Station, Hackathon Challenge(2025)
