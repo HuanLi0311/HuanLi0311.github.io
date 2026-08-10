@@ -33,13 +33,13 @@ Over the past thinking and experience, I'm now dedicated to building long‑hori
 
 {% include_relative includes/professional_service.md %}
 
-{% include_relative includes/education.md %}
+<!-- {% include_relative includes/education.md %} -->
 
 {% include_relative includes/honers.md %}
 
 {% include_relative includes/technical_skills.md %}
 
-{% include_relative includes/teaching.md %}
+<!-- {% include_relative includes/teaching.md %} -->
 
 {% include_relative includes/extracurricular.md %}
 
