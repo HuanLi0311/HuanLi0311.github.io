@@ -12,11 +12,15 @@ redirect_from:
 
 {% include_relative section/intro.md %}
 
+<div class="tight-list-section">
 {% include_relative section/interests.md %}
+</div>
 
 {% include_relative section/vision.md %}
 
+<div class="tight-list-section">
 {% include_relative section/news.md %}
+</div>
 
 {% include_relative section/publications.md %}
 
