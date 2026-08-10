@@ -9,6 +9,9 @@ main:
   - title: 'Publications'
     url: '/#publications'
 
+  # - title: 'Invited Talks'
+  #   url: '/#-invited-talks'
+
   - title: 'Technical Skills'
     url: '/#technical-skills'
 

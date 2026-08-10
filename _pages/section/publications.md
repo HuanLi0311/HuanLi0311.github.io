@@ -9,8 +9,8 @@
   *Computer Vision and Pattern Recognition (CVPR)*, Nov. 2025
 
 ## Working Projects
-
+- **nanoGPT** [[repo]](https://github.com/HuanLi0311/nanoGPT)
+- **awesome-frontier-blogs** [[repo]](https://github.com/HuanLi0311/awesome-frontier-blogs)
 - **Learning-based-3D-Vision** [[repo]](https://github.com/dongjiacheng06/Learning-based-3D-Vision)
-
-Motivated by lowered the entry barrier for beginners & helping researchers quickly locate relevant papers. The repository contents classified 10-15 major branches and 200 papers in 3DV-like fields, covering both foundational and representative papers to improve indexing.
+- **Memix** [[repo]](https://github.com/dongjiacheng06/Learning-based-3D-Vision)
 
