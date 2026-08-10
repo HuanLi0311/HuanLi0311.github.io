@@ -15,7 +15,6 @@ Allow: /*.gif
 Allow: /about/
 Allow: /publications/
 Allow: /research/
-Allow: /teaching/
 Allow: /blog/
 
 # Prevent duplicate content

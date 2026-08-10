@@ -20,17 +20,9 @@ redirect_from:
 
 {% include_relative section/publications.md %}
 
-{% include_relative section/recent_projects.md %}
-
-{% include_relative section/invited_talks.md %}
-
-{% include_relative section/professional_service.md %}
-
 {% include_relative section/awards.md %}
 
 {% include_relative section/_skills.md %}
-
-{% include_relative section/extracurricular.md %}
 
 # Contact
 - **Email**: [huanhuanli104@gmail.com](mailto:huanhuanli104@gmail.com)
