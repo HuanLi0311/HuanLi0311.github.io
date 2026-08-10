@@ -32,7 +32,7 @@ redirect_from:
 
 {% include_relative section/extracurricular.md %}
 
-# 📧 Contact
+# Contact
 - **Email**: [huanhuanli104@gmail.com](mailto:huanhuanli104@gmail.com)
 
 ---
