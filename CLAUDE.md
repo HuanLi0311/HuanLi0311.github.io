@@ -25,7 +25,7 @@ This is a Jekyll-based academic personal homepage built on the AcadHomepage temp
 - **Automated Google Scholar Integration**: Python crawler updates citation data automatically
 
 ### Key Directories
-- `_pages/`: Main content pages (about.md, blog.md, etc.)
+- `_pages/`: Main content pages (main.md, blog.md, etc.)
 - `_pages/includes/`: Modular content sections (education.md, research_interests.md, etc.)
 - `_layouts/`: HTML templates (default.html)
 - `_includes/`: Reusable components (masthead.html, sidebar.html, etc.)
@@ -39,7 +39,7 @@ This is a Jekyll-based academic personal homepage built on the AcadHomepage temp
 - **GitHub Actions**: `.github/workflows/pages.yml` handles automated deployment to GitHub Pages
 
 ### Content Management
-- Homepage content is in `_pages/about.md`
+- Homepage content is in `_pages/main.md`
 - Content is modularized using Jekyll includes: `{% include_relative includes/research_interests.md %}`
 - Google Scholar citations can be displayed using: `<span class='show_paper_citations' data='SCHOLAR_PAPER_ID'></span>`
 - **Content Update Pattern**: Major sections (News, Publications, Teaching) are in separate include files for easy maintenance
@@ -68,7 +68,7 @@ This is a Jekyll-based academic personal homepage built on the AcadHomepage temp
 
 ### Homepage Maintenance Guidelines
 - Update `_pages/includes/news.md` regularly with latest achievements
-- Maintain "Last updated" timestamp at bottom of `_pages/about.md`
+- Maintain "Last updated" timestamp at bottom of `_pages/main.md`
 - For major life events (degree completion, new positions), update both News and relevant sections
 - Use consistent date format: [YYYY.MM] for news entries
 - **Multi-section updates**: When adding degrees, update both Education section and News section
