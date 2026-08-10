@@ -1,12 +1,14 @@
 # Research Interests
 
-My research interests lie in robot learning, embodied intelligence, and world models, with a focus on building generalizable robotic systems that can learn from scalable visual data, reason over long horizons, and transfer to real-world deployment.
+Data is the source of intelligence, the model its outset, and the environment its terminal.
+A harness links model reasoning with the external environment, bringing intelligence to reality. My research interests lie in this close-loop stream, where standardized protocols and efficient context
+engineering turn reasoning into interaction; generated data returns to the model as higher-order intelligence. Through this loop, complex interaction becomes not an extension of the model, but its native capacity.
 
 <ul>
-  <li><strong>Loco-Manipulation</strong><br />
-  I am interested in bridging tabletop manipulation and full-body mobile manipulation. Rather than treating locomotion and manipulation as separate problems, I aim to study integrated systems where whole-body motion, dual-hand actions, and task-level intent are jointly modeled for practical robotic deployment.</li>
-  <li><strong>World Models for Robotics</strong><br />
-  I am interested in visual world models that support long-horizon prediction, planning, and policy learning. Compared with language-only supervision, pretrained visual generative models can provide dense continuous signals for robotic interaction and may enable stronger cross-task transfer and zero-shot generalization.</li>
-  <li><strong>Few-Shot Policy Learning</strong><br />
-  I am interested in data-efficient policy learning methods that reduce the dependence on large-scale robot datasets. Since high-quality robotic data is expensive and scarce, few-shot adaptation, task vectors, and modular policy learning are important directions for building practical robot learning systems.</li>
+  <li><strong>Agentic Data</strong><br />
+Now, we predefine tool‑calling, backtracking and forgetting behaviors to realize sophisticated interactions. These data naturally carry interaction‑aware trajectory, yet they originate from lifeless predefined logic. Collecting such data allows interactions to further soften into model‑native capacities, enables richer and more diverse harness designs, and gives rise to a positive feedback loop.</li>
+  <li><strong>Agentic Post-training</strong><br />
+Pre-training foster the brain and post-training sculpts for the world where it operate. As above mentioned, infancy systems tend to rely more heavily on externally predefined logic compared with  higher model. Due to the paradigm of pretraining, complex agent behaviors can hardly be instilled. By contrast, post‑training supports richer algorithm and operates on tasks closer to real‑world deployment scenarios, enabling models to evolve from capable to feasible.</li>
+  <li><strong>Evaluation / product</strong><br />
+Model is the product, the best way to measure intelligence is to measure whether users problems can be solved. Therefore, clear model boundaries and deep user‑scenario understanding enable better evaluation of a model’s capabilities under given conditions. From a training perspective, this is the gradient signal; From a product perspective, this determines how intelligent the model appears in users’ eyes. </li>
 </ul>
