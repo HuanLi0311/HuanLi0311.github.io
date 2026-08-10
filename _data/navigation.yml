@@ -12,14 +12,8 @@ main:
   - title: 'Invited Talks'
     url: '/#-invited-talks'
 
-  - title: 'Education'
-    url: '/#-education'
-
   - title: 'Technical Skills'
     url: '/#-technical-skills'
-
-  - title: 'Teaching'
-    url: '/#-teaching'
 
   - title: 'Philosophy'
     url: '/philosophy'
