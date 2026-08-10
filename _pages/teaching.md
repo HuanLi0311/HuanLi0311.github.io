@@ -1,4 +1,4 @@
----
+<!-- ---
 layout: single
 title: "Teaching Experience"
 permalink: /#-teaching
@@ -36,4 +36,4 @@ author_profile: true
 
 ### Differential Equation I (Fall 2020)
 - Instructor: Prof. Wuqing Ning (Applied Math, USTC)
-- Class size: 156 students
+- Class size: 156 students -->
