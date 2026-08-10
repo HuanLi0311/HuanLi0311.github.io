@@ -6,7 +6,7 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-title                    : "Xiaolong Luo | Harvard Ph.D. Student"
+title                    : "Huan Li"
 description              : ""
 repository               : "HuanLi0311/HuanLi0311.github.io"
 baseurl                 : ""
@@ -23,11 +23,11 @@ baidu_site_verification  : code-ZxFK3f4pfb
 
 # Site Author
 author:
-  name             : "Xiaolong Luo"
+  name             : "Huan Li"
   avatar           : "/images/profile.png"
-  bio              : "Ph.D. Student in Engineering Science at Harvard University"
+  bio              :
   location         :
-  employer         : "Harvard University"
+  employer         :
   pubmed           : 
   googlescholar    :
   email            : "huanhuanli104@gmail.com"
