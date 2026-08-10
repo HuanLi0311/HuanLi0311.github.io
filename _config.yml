@@ -26,12 +26,12 @@ author:
   name             : "Xiaolong Luo"
   avatar           : "/images/profile.png"
   bio              : "Ph.D. Student in Engineering Science at Harvard University"
-  location         : "Cambridge, Massachusetts"
+  location         :
   employer         : "Harvard University"
   pubmed           : 
-  googlescholar    : "https://scholar.google.com/citations?user=Pjx2DdQAAAAJ&hl=en"
+  googlescholar    :
   email            : "xiaolongluo@g.harvard.edu"
-  cv               : "assets/files/CV.pdf"
+  cv               :
   researchgate     :  # e.g., "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
@@ -46,7 +46,7 @@ author:
   instagram        :
   impactstory      : # e.g., "https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
-  linkedin         :  "xiaolong-luo-4a8281236"
+  linkedin         :
   dblp             : # e.g., "https://dblp.org/pid/xx/xxxx.html"
   orcid            : # e.g., "https://orcid.org/xxxx"
   pinterest        :
