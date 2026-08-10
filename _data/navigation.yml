@@ -15,11 +15,5 @@ main:
   - title: 'Technical Skills'
     url: '/#technical-skills'
 
-  - title: 'Philosophy'
-    url: '/philosophy'
-
   - title: 'Contact'
     url: '/#-contact'
-
-  - title: 'Blog'
-    url: '/blog'
