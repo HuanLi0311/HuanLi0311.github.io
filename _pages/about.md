@@ -3,17 +3,18 @@ permalink: /
 title: ""
 excerpt: ""
 author_profile: true
-redirect_from:
+redirect_from: 
   - /about/
   - /about.html
 ---
 
 <span class='anchor' id='about-me'></span>
-I am an **undergraduate in Automation**. My early work focused on **dynamic planning** and **statistical machine learning**. Since 2025, I have moved into **3D vision**, **multimodal methods**, **world models**, and **robotics**.
+Welcome to my homepage! I'm a 28fall undergraduate majoring in Automation. Early in college, I focused on dynamic planning and statistical machine learning, and was exposed to 3D vision in Jun.2025 and multi‑modal methods in Nov.2025.
+Over the past thinking and experience, I'm now dedicated to building long‑horizon agents via well‑specified harness designs that bridge models and application environments. I expect to enable high‑quality context engineering and agentic data construction for agent‑native post‑training, toward improved models and practical products.
 
-I now work on **long-horizon agents**, **agent-native post-training**, and **high-quality data/context design**. My goal is to build better **models** and **products**.
+You can reach me via email at [xiaolongluo@g.harvard.edu](mailto:xiaolongluo@g.harvard.edu). <span style="color: #E74C3C; font-weight: bold; padding: 5px 10px; border-radius: 4px; background-color: rgba(231, 76, 60, 0.1);">🤝 I am actively seeking internship and collaborations in language/agent domains! If you're interested in agentic post-training & data & products or any related fields, feel free to reach out!</span>
 
-You can reach me at [huanhuanli104@gmail.com](mailto:huanhuanli104@gmail.com). I am open to **internships** and **research collaborations** in **agents**, **post-training**, and **data**.
+<!-- <span style="color: #2E86AB; font-weight: bold; padding: 5px 10px; border-radius: 4px; background-color: rgba(46, 134, 171, 0.1);">📋 Note: I am currently looking for summer 2026 internships! If you know of any suitable positions, I'd love your recommendations. Also always happy to chat over coffee!</span> -->
 
 {% include_relative includes/research_interests.md %}
 
@@ -22,6 +23,8 @@ You can reach me at [huanhuanli104@gmail.com](mailto:huanhuanli104@gmail.com). I
 {% include_relative includes/news.md %}
 
 {% include_relative includes/pub.md %}
+
+
 
 {% include_relative includes/recent_projects.md %}
 
@@ -39,12 +42,10 @@ You can reach me at [huanhuanli104@gmail.com](mailto:huanhuanli104@gmail.com). I
 
 {% include_relative includes/extracurricular.md %}
 
-# Contact
 
+# 📧 Contact
 - **Email**: [huanhuanli104@gmail.com](mailto:huanhuanli104@gmail.com)
-
 ---
-
 <div style="text-align: center; color: #666; font-size: 0.9em; margin-top: 2em; border-top: 1px solid #eee; padding-top: 1em;">
 <em>Last updated: Aug. 2026</em>
 </div>
