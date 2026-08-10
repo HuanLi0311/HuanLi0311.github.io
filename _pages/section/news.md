@@ -1,4 +1,4 @@
-# 🔥 News
+# News
 
 - [2026.06] [MV-Actor](https://arxiv.org/abs/2606.10899) a journal article in terms of robot manipulation was released in arXiv.
 - [2026.05] [AR Forcing](https://arxiv.org/abs/2605.31314) which towards Long-Horizon Navigation World Model was released in arXiv.
