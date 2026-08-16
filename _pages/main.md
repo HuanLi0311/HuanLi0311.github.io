@@ -13,14 +13,12 @@ redirect_from:
 <style>
 .hero-banner {
   position: relative;
-  height: 300px;
   overflow: hidden;
   border-radius: 14px;
   margin: 0.4em 0 1.6em 0;
   background: #fafafa;
   border: 1px solid #eee;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
-  container-type: inline-size;
   animation: hero-fade-in 0.9s ease both;
 }
 .hero-banner__bg {
@@ -29,83 +27,75 @@ redirect_from:
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 55%;
-  opacity: 0.22;
+  object-position: 45% 55%;
+  opacity: 0.18;
   pointer-events: none;
   user-select: none;
 }
 .hero-banner__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.12) 45%, rgba(255,255,255,0.5) 100%);
+  background: linear-gradient(180deg, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0.55) 45%, rgba(255,255,255,0.72) 100%);
   pointer-events: none;
 }
-.hero-banner__line {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  white-space: nowrap;
-  margin: 0;
-  padding: 0 1.5%;
+.hero-banner__text {
+  position: relative;
+  max-width: 72ch;
+  margin: 0 auto;
+  padding: 2.4em 2em;
   font-family: Georgia, 'Times New Roman', serif;
-  font-style: italic;
-  letter-spacing: 0.01em;
-  color: #333;
-  opacity: 0;
-  animation: hero-switch 16s ease-in-out infinite;
+  font-size: 0.88em;
+  line-height: 1.8;
+  color: #2b2b2b;
 }
-.hero-banner__line--1 { font-size: 21px; }
-.hero-banner__line--2 { font-size: 12px; animation-delay: -8s; }
-@supports (container-type: inline-size) {
-  .hero-banner__line--1 { font-size: 2.3cqw; }
-  .hero-banner__line--2 { font-size: 1.1cqw; }
+.hero-banner__text .hero-banner__title {
+  text-align: center;
+  font-size: 1.15em;
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  margin: 0 0 1.2em 0;
+  color: #222;
 }
-.hero-banner:hover .hero-banner__line {
-  animation-play-state: paused;
+.hero-banner__text p {
+  margin: 0 0 1em 0;
 }
-@keyframes hero-switch {
-  0%   { opacity: 0; transform: translateY(12px); }
-  4%   { opacity: 1; transform: translateY(0); }
-  46%  { opacity: 1; transform: translateY(0); }
-  50%  { opacity: 0; transform: translateY(-12px); }
-  100% { opacity: 0; transform: translateY(-12px); }
+.hero-banner__text p:last-child {
+  margin-bottom: 0;
 }
 @keyframes hero-fade-in {
   from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 @media (max-width: 768px) {
-  .hero-banner { height: 200px; }
-  .hero-banner__line { white-space: normal; padding: 0 14px; }
-  .hero-banner__line--1 { font-size: 15px; }
-  .hero-banner__line--2 { font-size: 11.5px; }
+  .hero-banner__text { padding: 1.6em 1.2em; font-size: 0.8em; line-height: 1.7; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-banner { animation: none; }
-  .hero-banner__line { animation: none; position: static; transform: none; white-space: normal; padding: 6px 14px; }
-  .hero-banner__line--1 { opacity: 1; }
-  .hero-banner__line--2 { opacity: 1; }
 }
 [data-theme="dark"] .hero-banner {
   background: #1a1a1a;
   border-color: #333;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
 }
-[data-theme="dark"] .hero-banner__bg { opacity: 0.14; }
+[data-theme="dark"] .hero-banner__bg { opacity: 0.12; }
 [data-theme="dark"] .hero-banner__overlay {
-  background: linear-gradient(180deg, rgba(20,20,20,0.55) 0%, rgba(20,20,20,0.2) 45%, rgba(20,20,20,0.55) 100%);
+  background: linear-gradient(180deg, rgba(20,20,20,0.78) 0%, rgba(20,20,20,0.6) 45%, rgba(20,20,20,0.78) 100%);
 }
-[data-theme="dark"] .hero-banner__line { color: #e5e5e5; }
+[data-theme="dark"] .hero-banner__text { color: #dcdcdc; }
+[data-theme="dark"] .hero-banner__text .hero-banner__title { color: #eaeaea; }
 </style>
 
-<div class="hero-banner" role="note" aria-label="Welcome to my homepage! I'm a 28fall undergraduate majoring in Automation. Early in college, I focused on dynamic planning and statistical machine learning, and was exposed to 3D vision in Jun. 2025 and multi-modal methods in Nov. 2025.">
+<div class="hero-banner">
   <img class="hero-banner__bg" src="{{ '/images/banner-cat.jpg' | relative_url }}" alt="" aria-hidden="true" loading="eager">
   <div class="hero-banner__overlay"></div>
-  <p class="hero-banner__line hero-banner__line--1" aria-hidden="true">Welcome to my homepage! I'm a 28fall undergraduate majoring in Automation.</p>
-  <p class="hero-banner__line hero-banner__line--2" aria-hidden="true">Early in college, I focused on dynamic planning and statistical machine learning, and was exposed to 3D vision in Jun. 2025 and multi-modal methods in Nov. 2025.</p>
+  <div class="hero-banner__text">
+    <p class="hero-banner__title">The Harness Is Not a Leash</p>
+    <p>Watch the hand move the bishop. Diagonal, three squares. Nothing forced it; nothing prevented it either — that is the strange thing, the thing one keeps almost seeing and then losing — the rules of chess forbid nothing at all. Knock the board over, pocket the piece, no law stops you. And yet without the rules there is no bishop, no diagonal, no game; only wood on wood, only a hand in the air. Rawls saw it first, or named it first, in 1955; Searle built a whole theory of social reality along the seam. Some rules regulate — the traffic light, the queue — they govern what already happens. Others constitute. They do not say <em>do this, not that.</em> They say: <em>this is what counts as a move at all.</em></p>
+    <p>How odd, then — the thought comes unbidden, watching the little agent run its errands across the screen — how odd that we speak of harnesses only in the language of restraint. Guardrails, leashes, sandboxes; as if the model were a reservoir and all our craft were dams. Safety has its reasons, yes. But the vocabulary is subtraction, and the thing itself is not subtraction. The thing itself is chess rules.</p>
+    <p>For before the schema — before the little litany of name, of arguments, of types — <em>calling a tool</em> was not something the model was forbidden to do. It was not anything. There was no move to suppress; the square did not exist on the board. And the schema does not say <em>you may.</em> It says what a call <em>is</em> — which was Austin's old discovery, that some utterances do not describe but do; <em>I do</em>, said at the altar, and the world rearranges itself around the words — and Searle's refinement, that such acts carry felicity conditions, that the tokens must come forth <em>just so</em> or they are noise dressed as intent. The schema is the ceremony. The ceremony is what makes the vow a vow.</p>
+    <p>Then MCP, and the view widens the way a street widens into a square. Read the specification: there are almost no prohibitions in it. It is a book of definitions. <em>This is what a tool is. This is what a resource is. This is what a prompt is.</em> Everyone speaks of the engineering, N times M collapsing into N plus M, but that is arithmetic; the deeper event is ontological. Interoperability was not permitted by the protocol. It was constituted by it. Before, "a tool" was not a stable object in the agent's world; afterward it exists the way money exists, the way a promise exists — because we agree on what counts. A social fact, conjured out of agreement, holding the whole bazaar together.</p>
+    <p>Outside, the evening. The cursor blinks. A behavior that did not exist this morning exists now; nothing was forbidden, nothing was taken away — and somewhere a hand moves a bishop, diagonally, three squares, and it means something.</p>
+  </div>
 </div>
 
 {% include_relative section/intro.md %}
