@@ -12,7 +12,6 @@
 - **nanoGPT** [[repo]](https://github.com/HuanLi0311/nanoGPT)
 - **awesome-frontier-blogs** [[repo]](https://github.com/HuanLi0311/awesome-frontier-blogs)
 - **Learning-based-3D-Vision** [[repo]](https://github.com/dongjiacheng06/Learning-based-3D-Vision)
-- **Memix** [[repo]](https://github.com/dongjiacheng06/Learning-based-3D-Vision)
 - **Memoh** [[repo]](https://github.com/memohai/Memoh)
 - **deepseek-harness-lisp** [[repo]](https://github.com/HuanLi0311/deepseek-harness-lisp)
 - **StreamVGGT** [[repo]](https://github.com/wzzheng/StreamVGGT)
